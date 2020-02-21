@@ -13,10 +13,17 @@ function writePassword() {
 // Generates password based on user input
 function generatePassword() {
   var passwordLength = window.prompt("Please enter the length of the password - must be between 8 to 128");
-  
-  while (passwordLength < 8 || passwordLength > 128) {
-    var passwordLength = window.prompt("Your password length must be less than 128 and more than 8!");
-  }    
+  var counter = 4;
+  while (passwordLength < 8 || passwordLength > 128 && counter > 0) {
+    if (counter === 0) {
+      return "You are an idiot!";
+    }
+    else {
+      counter--;
+      var passwordLength = window.prompt("Your password length must be less than 128 and more than 8!");      
+    }
+  } 
+  // user inputs   
   var hasUpperCase = window.confirm("Do you want to include uppercase letters?");
   var hasLowerCase = window.confirm("Do you want to include lowercase letters?");
   var hasNumeric = window.confirm("Do you want to include numerics?");
